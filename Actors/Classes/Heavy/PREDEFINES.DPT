@@ -1,0 +1,10 @@
+//PREDEFINES.DPT
+//LUMP VERSION NUMBER 0.34
+
+ACTOR Bullets : Ammo
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 400
+	Ammo.BackpackAmount 1
+	Ammo.BackpackMaxAmount 800
+}

@@ -1,0 +1,35 @@
+//PREDEFINES.DPT
+//LUMP VERSION NUMBER 0.34
+
+ACTOR Magic : Ammo
+{
+	Ammo.BackpackAmount 0
+	Ammo.BackpackMaxAmount 400
+	Inventory.Amount 10
+	Inventory.MaxAmount 200
+	Inventory.Icon "DMOIA0"
+	Inventory.PickupMessage "Picked up a demonic orb."
+	Inventory.PickupSound "misc/i_pkup"
+	Scale 0.1
+	States
+	{
+	Spawn:
+		DORB ABCB 4
+		Loop
+	}
+}
+
+ACTOR ChiGem : Inventory
+{
+	Inventory.Icon "CHIGC0"
+	Inventory.PickupMessage "Chi Gem"
+	Inventory.PickupSound "misc/p_pkup"
+	Scale 0.6
+	+INVENTORY.INVBAR
+	States
+	{
+	Spawn:
+		CHIG AB 8
+		Loop
+	}
+}

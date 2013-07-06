@@ -1,0 +1,38 @@
+//WEAPONS.DPT
+//LUMP VERSION NUMBER 0.11
+
+actor SilencerPistol : Weapon
+{
+	+WIMPY_WEAPON
+	+WEAPON.NOAUTOFIRE
+	+NOALERT
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 10
+	Weapon.AmmoType "SilencerPistolAmmo"
+	Inventory.Pickupmessage "You got the pistol!"
+	Obituary "%o was capped by %k's pistol."
+	States
+	{
+	Ready:
+		COLT A 1 A_WeaponReady
+		goto ready
+	Deselect:
+		COLT A 0 A_Lower
+		COLT A 1 A_Lower
+		Loop
+	Select:
+		COLT A 0 A_Raise
+		COLT A 1 A_Raise
+		Loop
+	Fire:
+		COLT A 0 A_PlaySound("Weapons/COLTFIRE")
+		COLT B 0 A_FireBullets (2.0, 2.0, -1, 4, "BulletPuff", 1,1255)
+		COLT B 2 A_GunFlash
+		COLT C 2 
+		COLT C 1 A_WeaponReady 
+		goto Ready
+	Spawn:
+		PIST Z -1
+		stop
+	}
+}

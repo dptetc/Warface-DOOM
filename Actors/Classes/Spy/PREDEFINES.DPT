@@ -1,0 +1,10 @@
+//PREDEFINES.DPT
+//LUMP VERSION NUMBER 0.34
+
+ACTOR SilencerPistolAmmo : Ammo
+{
+	Ammo.BackpackAmount 0
+	Ammo.BackpackMaxAmount 400
+	Inventory.Amount 10
+	Inventory.MaxAmount 200
+}

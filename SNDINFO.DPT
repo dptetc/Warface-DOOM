@@ -14,3 +14,9 @@ weapons/chngunwndup		DSDWU
 weapons/chngunwnd		DSD3CGMO
 weapons/chngunwnddwn	DSD3CGWD
 $random weapons/minigun { weapons/chngun1 weapons/chngun2 weapons/chngun3 }
+weapons/unmaker			dsunmker
+weapons/unmakercharge	dsunchrg
+weapons/flash			dsunmkpo
+Weapon/SniperFire		DSSNIPER
+Weapon/SniperCharge		DSSNICHR
+weapons/COLTFIRE		COLTFIRE

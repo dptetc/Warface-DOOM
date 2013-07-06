@@ -1,0 +1,17 @@
+//PREDEFINES.DPT
+//LUMP VERSION NUMBER 0.34
+
+Actor SniperAmmo: Ammo
+{
+	Inventory.MaxAmount 50
+	Inventory.Amount 5
+	Inventory.Icon "SAMOA0"
+	Inventory.PickupSound "misc/pk_up"
+	Inventory.PickupMessage "You got Sniper Ammo"
+	States
+	{
+	Spawn:
+		SAMO A -1
+		Loop
+	}
+}

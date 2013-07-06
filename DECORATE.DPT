@@ -12,17 +12,27 @@ All content fully free, but the distribution of all content is under DartPower's
 //Global
 #include "Actors/PREDEFINES.DPT"
 //------------------------------------
+//Assault
+#include "Actors/Classes/Assault/PREDEFINES.DPT"
+#include "Actors/Classes/Assault/CLASS.DPT"
+#include "Actors/Classes/Assault/WEAPONS.DPT"
+//------------------------------------
+//Demonologist
+#include "Actors/Classes/Demonologist/PREDEFINES.DPT"
+#include "Actors/Classes/Demonologist/CLASS.DPT"
+#include "Actors/Classes/Demonologist/WEAPONS.DPT"
+//------------------------------------
 //Grenader
-#include "Actors/Classes/GrenadeGuy/PREDEFINES.DPT"
-#include "Actors/Classes/GrenadeGuy/CLASS.DPT"
-#include "Actors/Classes/GrenadeGuy/WEAPONS.DPT"
+#include "Actors/Classes/Grenader/PREDEFINES.DPT"
+#include "Actors/Classes/Grenader/CLASS.DPT"
+#include "Actors/Classes/Grenader/WEAPONS.DPT"
 //------------------------------------
-//PlasmaGuy
-#include "Actors/Classes/PlasmaGuy/PREDEFINES.DPT"
-#include "Actors/Classes/PlasmaGuy/CLASS.DPT"
-#include "Actors/Classes/PlasmaGuy/WEAPONS.DPT"
+//Heavy
+#include "Actors/Classes/Heavy/PREDEFINES.DPT"
+#include "Actors/Classes/Heavy/CLASS.DPT"
+#include "Actors/Classes/Heavy/WEAPONS.DPT"
 //------------------------------------
-//HeavyGuy
-#include "Actors/Classes/HeavyGuy/PREDEFINES.DPT"
-#include "Actors/Classes/HeavyGuy/CLASS.DPT"
-#include "Actors/Classes/HeavyGuy/WEAPONS.DPT"
+//Sniper
+#include "Actors/Classes/Sniper/PREDEFINES.DPT"
+#include "Actors/Classes/Sniper/CLASS.DPT"
+#include "Actors/Classes/Sniper/WEAPONS.DPT"

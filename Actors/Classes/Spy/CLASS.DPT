@@ -1,0 +1,52 @@
+//CLASS.DPT
+//LUMP VERSION NUMBER 0.3
+
+Actor Spy : PlayerPawn
+{
+	Speed 1
+	Health 100
+	Player.maxhealth 100
+	Radius 16
+	Height 56
+	Mass 100
+	RenderStyle Add
+	alpha 0.25
+	PainChance 255
+	Player.MaxHealth 50
+	Player.ColorRange 112, 127
+	Player.DisplayName "Spy"
+	Player.StartItem "SilencerPistolAmmo", 200
+	Player.StartItem "SilencerPistol"
+	Player.WeaponSlot 1, "SilencerPistol"
+	+GHOST
+	States
+	{
+	Spawn:
+		PKNI A -1
+		Loop
+	See:
+		PKNI A 8
+		PKNI B 8
+		PKNI C 8
+		PKNI D 8
+		Loop
+	Missile:
+		PKNI E 12 
+		Goto Spawn
+	Melee:
+		PKNI F 6 BRIGHT
+		Goto Missile
+	Pain:
+		PKNI G 4 
+		PKNI G 4 A_Pain
+		Goto Spawn
+	XDeath:
+	Death:
+		TFOG A 2
+		TFOG B 2
+		TFOG C 2 A_NoBlocking
+		TFOG DEFGHIJ 2
+		NULL A -1
+		Stop
+	}
+}

@@ -1,0 +1,44 @@
+//WEAPONS.DPT
+//LUMP VERSION NUMBER 0.1
+
+ACTOR Minigun : Weapon 5014
+{
+	SpawnID 214
+	Radius 20
+	Height 16
+	Weapon.AmmoType "Bullets" 
+	Weapon.AmmoGive 20
+	Weapon.AmmoUse 1
+	Weapon.Selectionorder 700
+	Weapon.Kickback 100
+	Inventory.PickupMessage "You got the minigun!"
+	Obituary "%o was drilled by %k's minigun."
+	AttackSound "weapons/minigun"
+	States
+	{
+	Spawn:
+		CHAN F -1
+		Loop
+	Ready:
+		D3CH A 1 A_WeaponReady
+		Loop
+	Deselect:
+		D3CH A 1 A_Lower
+		D3CH A 0 A_Lower
+		Loop
+	Select:
+		D3CH A 1 A_Raise
+		D3CH A 0 A_Raise
+		Loop
+	Fire:
+		D3CH C 2 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
+		D3CH D 2 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
+		D3CH A 2 A_ReFire
+		D3CH B 2
+		D3CH A 4
+		D3CH B 4
+		D3CH A 8
+		D3CH B 8
+		Goto Ready 
+	}
+}

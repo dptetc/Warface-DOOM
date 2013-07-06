@@ -1,0 +1,54 @@
+//CLASS.DPT
+//LUMP VERSION NUMBER 0.3
+
+Actor Sniper : PlayerPawn
+{
+	+NOSKIN
+	Speed 1
+	Health 100
+	Radius 16
+	Height 56
+	Mass 100
+	PainChance 255
+	Player.CrouchSprite "PSPC"
+	Player.DisplayName "Sniper"
+	Player.StartItem "SniperRifle"
+	Player.StartItem "SniperAmmo", 50
+	Player.WeaponSlot 1, SniperRifle
+	Player.ColorRange 112, 127
+	States
+	{
+	Spawn:
+		PSNP A -1
+		Loop
+	See:
+		PSNP ABCD 4 
+		Loop
+	Missile:
+		PSNP E 12 
+		Goto Spawn
+	Melee:
+		PSNP F 6 BRIGHT
+		Goto Missile
+	Pain:
+		PSNP G 4 
+		PSNP G 4 A_Pain
+		Goto Spawn
+	Death:
+		PSNP H 10
+		PSNP H 0 A_GiveToTarget("Experience",random(1,10))
+		PSNP I 10 A_PlayerScream
+		PSNP J 10 A_NoBlocking
+		PSNP KLM 10
+		PSNP N -1
+		Stop
+	XDeath:
+		PSNP O 5
+		PSNP O 0 A_GiveToTarget("Experience",random(1,10))
+		PSNP P 5 A_XScream
+		PSNP Q 5 A_NoBlocking
+		PSNP RSTUV 5
+		PSNP W -1
+		Stop
+	}
+}

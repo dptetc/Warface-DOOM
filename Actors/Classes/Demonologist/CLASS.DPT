@@ -1,0 +1,54 @@
+//CLASS.DPT
+//LUMP VERSION NUMBER 0.3
+
+Actor Demonologist : PlayerPawn
+{
+	+NOSKIN
+	Speed 1
+	Health 100
+	Radius 16
+	Height 56
+	Mass 100
+	PainChance 255
+	Player.CrouchSprite "PUNC"
+	Player.DisplayName "Demonologist"
+	Player.StartItem "Unmaker"
+	Player.StartItem "Magic", 200
+	Player.WeaponSlot 1, Unmaker
+	Player.ColorRange 112, 127
+	States
+	{
+	Spawn:
+		PUNM A -1
+		Loop
+	See:
+		PUNM ABCD 4 
+		Loop
+	Missile:
+		PUNM E 12 
+		Goto Spawn
+	Melee:
+		PUNM F 6 BRIGHT
+		Goto Missile
+	Pain:
+		PUNM G 4 
+		PUNM G 4 A_Pain
+		Goto Spawn
+	Death:
+		PUNM H 10
+		PUNM H 0 A_GiveToTarget("Experience",random(1,10))
+		PUNM I 10 A_PlayerScream
+		PUNM J 10 A_NoBlocking
+		PUNM KLM 10
+		PUNM N -1
+		Stop
+	XDeath:
+		PUNM O 5
+		PUNM O 0 A_GiveToTarget("Experience",random(1,10))
+		PUNM P 5 A_XScream
+		PUNM Q 5 A_NoBlocking
+		PUNM RSTUV 5
+		PUNM W -1
+		Stop
+	}
+}

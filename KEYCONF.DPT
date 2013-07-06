@@ -1,4 +1,7 @@
 clearplayerclasses
-addplayerclass GrenadeGuy
-addplayerclass PlasmaGuy
-addplayerclass HeavyGuy
+addplayerclass Assault
+addplayerclass Demonologist
+addplayerclass Grenader
+addplayerclass Heavy
+addplayerclass Sniper
+//addplayerclass Spy
