@@ -1,3 +1,4 @@
 clearplayerclasses
 addplayerclass GrenadeGuy
 addplayerclass PlasmaGuy
+addplayerclass HeavyGuy

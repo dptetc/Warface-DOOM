@@ -11,6 +11,7 @@ All content fully free, but the distribution of all content is under DartPower's
 //------------------------------------
 //Global
 #include "Actors/PREDEFINES.DPT"
+//------------------------------------
 //Grenader
 #include "Actors/Classes/GrenadeGuy/PREDEFINES.DPT"
 #include "Actors/Classes/GrenadeGuy/CLASS.DPT"
@@ -20,3 +21,8 @@ All content fully free, but the distribution of all content is under DartPower's
 #include "Actors/Classes/PlasmaGuy/PREDEFINES.DPT"
 #include "Actors/Classes/PlasmaGuy/CLASS.DPT"
 #include "Actors/Classes/PlasmaGuy/WEAPONS.DPT"
+//------------------------------------
+//HeavyGuy
+#include "Actors/Classes/HeavyGuy/PREDEFINES.DPT"
+#include "Actors/Classes/HeavyGuy/CLASS.DPT"
+#include "Actors/Classes/HeavyGuy/WEAPONS.DPT"

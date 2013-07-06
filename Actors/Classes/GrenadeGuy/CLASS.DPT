@@ -10,8 +10,8 @@ Actor GrenadeGuy : PlayerPawn
 	Height 56
 	Mass 100
 	PainChance 255
+	Player.CrouchSprite "PGRC"
 	Player.DisplayName "GrenadeGuy"
-	//Player.CrouchSprite "PLYC"
 	Player.StartItem "HandGrenade"
 	Player.StartItem "GrenadeLauncher"
 	Player.StartItem "HandGrenadeAmmo", 50
@@ -38,6 +38,7 @@ Actor GrenadeGuy : PlayerPawn
 		Goto Spawn
 	Death:
 		PGRN H 10
+		PGRN H 0 A_GiveToTarget("Experience",random(1,10))
 		PGRN I 10 A_PlayerScream
 		PGRN J 10 A_NoBlocking
 		PGRN KLM 10
@@ -45,6 +46,7 @@ Actor GrenadeGuy : PlayerPawn
 		Stop
 	XDeath:
 		PGRN O 5
+		PGRN O 0 A_GiveToTarget("Experience",random(1,10))
 		PGRN P 5 A_XScream
 		PGRN Q 5 A_NoBlocking
 		PGRN RSTUV 5

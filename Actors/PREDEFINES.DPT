@@ -1,2 +1,19 @@
 ACTOR FullHealth : Inventory {}
-ACTOR Experience : Ammo {}
+ACTOR Experience : Ammo { Inventory.MaxAmount 999 }
+
+Actor Chainsaw1 replaces Chainsaw {}
+Actor Pistol1 replaces Pistol {}
+Actor Shotgun1 replaces Shotgun {}
+Actor SuperShotgun1 replaces SuperShotgun {}
+Actor Chaingun1 replaces Chaingun {}
+Actor RocketLauncher1 replaces RocketLauncher {}
+Actor PlasmaRifle1 replaces PlasmaRifle {}
+Actor BFG90001 replaces BFG9000 {}
+Actor Shell1 replaces Shell {}
+Actor ShellBox1 replaces ShellBox {}
+Actor RocketAmmo1 replaces RocketAmmo {}
+Actor RocketBox1 replaces RocketBox {}
+Actor Cell1 replaces Cell {}
+Actor CellPack1 replaces CellPack {}
+ACTOR Clip1 replaces Clip {}
+ACTOR ClipBox replaces Clip {}

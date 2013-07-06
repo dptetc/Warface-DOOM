@@ -1,4 +1,7 @@
-FFA_Classes
+FFA Classes
 ===========
 
-Modification for Zandronum game engine. [DOOM Port]
+Modification for Zandronum engine [DOOM Port]
+
+Description:
+This is a some classes for DM/FFA for DOOM Port - Zandronum
