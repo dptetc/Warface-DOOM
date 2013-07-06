@@ -1,0 +1,53 @@
+//CLASS.DPT
+//LUMP VERSION NUMBER 0.1
+
+Actor PlasmaGuy : PlayerPawn
+{
+	+NOSKIN
+	Speed 1
+	Health 100
+	Radius 16
+	Height 56
+	Mass 100
+	PainChance 255
+	Player.DisplayName "PlasmaGuy"
+	Player.StartItem "PlasmaPistol"
+	Player.StartItem "PulseRifle"
+	Player.StartItem "Plasma", 250
+	Player.WeaponSlot 1, PlasmaPistol
+	Player.WeaponSlot 2, PulseRifle
+	Player.ColorRange 112, 127
+	States
+	{
+	Spawn:
+		PLA6 A -1
+		Loop
+	See:
+		PLA6 ABCD 4 
+		Loop
+	Missile:
+		PLA6 E 12 
+		Goto Spawn
+	Melee:
+		PLA6 F 6 BRIGHT
+		Goto Missile
+	Pain:
+		PLA6 G 4 
+		PLA6 G 4 A_Pain
+		Goto Spawn
+	Death:
+		PLA6 H 10
+		PLA6 I 10 A_PlayerScream
+		PLA6 J 10 A_NoBlocking
+		PLA6 KLM 10
+		PLA6 N -1
+		Stop
+	XDeath:
+		PLA6 O 5
+		PLA6 P 5 A_XScream
+		PLA6 Q 5 A_NoBlocking
+		PLA6 RSTUV 5
+		PLA6 W -1
+		Stop
+	}
+}

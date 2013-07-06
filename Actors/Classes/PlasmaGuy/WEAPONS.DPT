@@ -1,0 +1,113 @@
+//WEAPONS.DPT
+//LUMP VERSION NUMBER 0.1
+
+Actor PlasmaPistol : Weapon
+{
+	Inventory.PickupSound "misc/w_pkup"
+	Weapon.AmmoType "Plasma"
+	Weapon.AmmoGive 20
+	Weapon.Kickback 100
+	Weapon.AmmoUse 1
+	Decal RailGunScorch
+	Inventory.PickupMessage "Picked up a Plasma Pistol"
+	Obituary "%o killed by %k"
+	+WEAPON.NOAUTOFIRE
+	+WEAPON.NOAUTOAIM
+	+WEAPON.NOALERT
+	+INVENTORY.UNDROPPABLE
+	States
+	{
+	Ready:
+		PIS1 A 2 A_WeaponReady
+		Loop
+	Deselect:
+		PIS1 A 0 A_Lower
+		PIS1 A 1 A_Lower
+		Loop
+	Select:
+		PIS1 A 0 A_Raise
+		PIS1 A 1 A_Raise
+		Loop
+	Spawn:
+		PIST A -1
+		Stop
+	Fire:
+		PIS1 B 2 BRIGHT
+		PIS1 C 2 BRIGHT A_FireCustomMissile("PlasmaBolt")
+		PIS1 A 0 A_Recoil (1)
+		PIS1 A 4
+		PIS1 A 12 A_Recoil (-1)
+		PIS1 A 0 A_Refire
+		Goto Ready
+	}
+}
+
+Actor PlasmaBolt : PlasmaBall
+{
+	States
+	{
+	Spawn:
+		PLSS AB 6 Bright A_SpawnItemEx("PlasmaShaddow")
+		Loop
+	}
+}
+
+Actor PlasmaShaddow : PlasmaBall
+{
+	RenderStyle Translucent
+	Alpha 0.35
+	Speed 24
+	States
+	{
+	Spawn:
+		PLSS AB 6 Bright A_FadeOut(0.1)
+		Stop
+	}
+}
+
+Actor PulseRifle : Weapon
+{
+	Weapon.AmmoType "Plasma"
+	Weapon.AmmoGive 50
+	Weapon.AmmoUse 0
+	+WEAPON.NOAUTOAIM
+	+WEAPON.NOALERT
+	+INVENTORY.UNDROPPABLE
+	Decal "BulletChip"
+	States
+	{
+	Deselect:
+		TKGN A 0 SetPlayerProperty(0,0,2)
+		TKGN A 0 A_Lower
+		TKGN A 1 A_Lower
+		Loop
+	Select:
+		TKGN A 0 SetPlayerProperty(0,1,2)
+		TKGN A 0 A_Raise
+		TKGN U 1 A_Raise
+		Wait
+	Ready:
+		TKGN UVWXA 1
+	RealReady:
+		TKGN A 19 A_WeaponReady
+		TKGN A 3 A_WeaponReady
+		TKGN A 0 A_GiveInventory("Plasma",2)
+		Goto RealReady+1
+	Fire:
+		TKGN A 1 A_JumpIfInventory("Plasma",1,"NormalShot")
+	NoAmmo:
+		TKGN A 20
+		Goto Ready
+	NormalShot:
+		TKGN A 0 A_GunFlash
+		TKGN A 0 A_PlayWeaponSound("PlasmaShot")
+		TKGN A 0 A_TakeInventory("Plasma",1)
+		TKGN A 4 A_FireCustomMissile("PlasmaBolt",0,1,5)
+		TKGN A 0 A_TakeInventory("Plasma",1)
+		TKGN A 4 A_FireCustomMissile("PlasmaBolt",0,1,5)
+		Goto RealReady
+	Flash:
+		TKGN BC 4 bright
+		Stop
+	}
+}

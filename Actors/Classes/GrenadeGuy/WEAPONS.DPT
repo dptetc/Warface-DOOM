@@ -1,0 +1,167 @@
+//WEAPONS.DPT
+//LUMP VERSION NUMBER 1.1 RC2
+
+ACTOR HandGrenade : Weapon
+{
+	Inventory.PickupMessage "You got a hand grenade!"
+	Weapon.AmmoType "HandGrenadeAmmo"
+	Weapon.AmmoGive 1
+	Weapon.AmmoUse 1
+	+WEAPON.NOAUTOAIM
+	+WEAPON.NOALERT
+	+WEAPON.NOAUTOFIRE
+	+INVENTORY.UNDROPPABLE
+	States
+	{
+	Ready:
+		GREN A 6 A_WeaponReady
+		Loop
+	Deselect:
+		GREN A 0 A_Lower
+		GREN A 1 A_Lower
+		Loop
+	Select:
+		GREN A 0 A_Raise
+		GREN A 1 A_Raise
+		Loop
+	Fire:
+		NULL A 0 A_JumpIfInventory("GrenadeTimer", 1, "Hold")
+		GRNF A 4
+		GRNF B 4 A_PlaySound("Grenade/PullPin") 
+		GRNF C 4
+		NULL A 0 A_GiveInventory("GrenadeTimer", 90)
+		NULL A 0 A_ReFire
+	Throw:
+		GRNF D 3 A_PlaySound("Grenade/Toss")
+		GRNF E 3 
+		GRNF F 3 A_FireCustomMissile("ThrownGrenade",0,1,0,0)
+		NULL A 0 A_TakeInventory("GrenadeTimer", 90)
+		Goto Ready
+	Hold:
+		GRNF A 1
+		NULL A 0 A_TakeInventory("GrenadeTimer", 90)
+		NULL A 0 A_JumpIfInventory("GrenadeTimer", 1, 1)
+		Goto Explode
+		NULL A 0 A_ReFire
+		Goto Throw
+	Explode:
+		TNT1 A 3 A_FireCustomMissile("ThrownGrenade_Exploded",0,1,0,0)
+		Goto Ready
+	}
+}
+
+ACTOR ThrownGrenade
+{
+	Radius 5
+	Height 5
+	Speed 24
+	Damage 10
+	SeeSound "weapons/grnbounce"
+	PROJECTILE
+	-NOGRAVITY
+	+HEXENBOUNCE
+	+LOWGRAVITY
+	States
+	{
+	Spawn:
+		GRND A 0
+		GRND A 4 A_AlertMonsters
+		GRND BCDEFGH 4
+		Goto Death
+	Death:
+		MISL B 0 A_PlaySound("weapons/grnexplode")
+		MISL B 0 A_Explode (150, 350, 0)
+		MISL BCD 3 Bright
+		Stop
+	}
+}
+
+Actor ThrownGrenade_Exploded
+{
+	States
+	{
+	Spawn:
+		MISL B 0 A_PlaySound("weapons/grnexplode")
+		MISL B 0 A_Explode (150, 350, 0)
+		MISL BCD 3 Bright
+		Stop
+	}
+}
+
+Actor GrenadeLauncher : Weapon
+{
+	Radius 20
+	Height 16
+	Weapon.SelectionOrder 2500
+	+WEAPON.NOAUTOAIM
+	+WEAPON.NOALERT
+	+WEAPON.NOAUTOFIRE
+	+INVENTORY.UNDROPPABLE
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 2
+	Weapon.AmmoType "HandGrenadeAmmo"
+	Weapon.Kickback 100
+	Inventory.PickupMessage "You got the grenade launcher!"
+	Obituary "%o caught %k's grenade."
+	States
+	{
+	Spawn:
+		GLAU A -1
+		Stop
+	Ready:
+		GRLG A 1 A_WeaponReady
+		Loop
+	Deselect:
+		GRLG A 0 A_Lower
+		GRLG A 1 A_Lower
+		Loop
+	Select:
+		GRLG A 0 A_Raise
+		GRLG A 1 A_Raise
+		Loop
+	Fire: 
+		GRLG B 8 A_GunFlash
+		GRLG B 12 A_FireCustomMissile("STGrenade", 0, 1, 0, 0, 0, 6.328125)
+		GRLG B 0 A_ReFire
+		Goto Ready 
+	Flash: 
+		GRLF A 3 Bright A_Light1
+		GRLF B 4 Bright
+		GRLF C 4 Bright A_Light2
+		GRLF D 4 Bright A_Light2
+		Goto LightDone
+	}
+}
+
+Actor STGrenade
+{
+	Radius 8
+	Height 8
+	Speed 25
+	Damage 20
+	Gravity 0.25
+	Projectile
+	-NoGravity
+	+DoomBounce
+	+DehExplosion
+	+GrenadeTrail
+	+ExplodeOnDeath
+	SeeSound "Weapons/GrBnce"
+	DeathSound "Weapons/GrenLX"
+	DamageType Fire
+	States
+	{
+	Spawn:
+		SGRN A 0 Bright
+		SGRN A 0 Bright A_StopSound
+		SGRN A 0 Bright A_PlaySound("Weapons/GrenLF")
+		SGRN A 1 Bright 
+		Goto Spawn+3
+	Death:
+		MISL B 0 Bright A_ChangeFlag("NoGravity", 1)
+		MISL B 8 Bright A_Explode
+		MISL C 6 Bright
+		MISL D 4 Bright
+		stop
+	}
+}
