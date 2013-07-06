@@ -36,3 +36,8 @@ All content fully free, but the distribution of all content is under DartPower's
 #include "Actors/Classes/Sniper/PREDEFINES.DPT"
 #include "Actors/Classes/Sniper/CLASS.DPT"
 #include "Actors/Classes/Sniper/WEAPONS.DPT"
+//------------------------------------
+//Spy
+#include "Actors/Classes/Spy/PREDEFINES.DPT"
+#include "Actors/Classes/Spy/CLASS.DPT"
+#include "Actors/Classes/Spy/WEAPONS.DPT"

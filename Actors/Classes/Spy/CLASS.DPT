@@ -15,6 +15,7 @@ Actor Spy : PlayerPawn
 	Player.MaxHealth 50
 	Player.ColorRange 112, 127
 	Player.DisplayName "Spy"
+	Player.CrouchSprite "PL2C"
 	Player.StartItem "SilencerPistolAmmo", 200
 	Player.StartItem "SilencerPistol"
 	Player.WeaponSlot 1, "SilencerPistol"
@@ -22,23 +23,23 @@ Actor Spy : PlayerPawn
 	States
 	{
 	Spawn:
-		PKNI A -1
+		PLA2 A -1
 		Loop
 	See:
-		PKNI A 8
-		PKNI B 8
-		PKNI C 8
-		PKNI D 8
+		PLA2 A 8
+		PLA2 B 8
+		PLA2 C 8
+		PLA2 D 8
 		Loop
 	Missile:
-		PKNI E 12 
+		PLA2 E 12 
 		Goto Spawn
 	Melee:
-		PKNI F 6 BRIGHT
+		PLA2 F 6 BRIGHT
 		Goto Missile
 	Pain:
-		PKNI G 4 
-		PKNI G 4 A_Pain
+		PLA2 G 4 
+		PLA2 G 4 A_Pain
 		Goto Spawn
 	XDeath:
 	Death:

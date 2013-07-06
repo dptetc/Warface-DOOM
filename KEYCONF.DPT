@@ -4,4 +4,4 @@ addplayerclass Demonologist
 addplayerclass Grenader
 addplayerclass Heavy
 addplayerclass Sniper
-//addplayerclass Spy
+addplayerclass Spy
