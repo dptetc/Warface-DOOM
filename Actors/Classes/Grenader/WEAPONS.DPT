@@ -16,7 +16,7 @@ ACTOR HandGrenade : Weapon
 	States
 	{
 	Ready:
-		GREN A 11 A_WeaponReady
+		GREN A 1 A_WeaponReady
 		Loop
 	Deselect:
 		GREN A 0 A_Lower
@@ -30,10 +30,20 @@ ACTOR HandGrenade : Weapon
 		GRNF A 4
 		GRNF B 4 A_PlaySound("Grenade/PullPin")
 		GRNF C 4
+		GRNF A 0 A_GiveInventory("GrenadeTimer", 90)
+		GRNF A 0 A_ReFire
+		Goto Throw
+	Throw:
 		GRNF D 3 A_PlaySound("Grenade/Toss")
 		GRNF E 3
 		GRNF F 3 A_FireCustomMissile("ThrownGrenade",0,1,0,0)
+		GRNF A 0 A_TakeInventory("GrenadeTimer", 90)
 		Goto Ready
+	Hold:
+		GRNF C 1
+		GRNF A 0 A_TakeInventory("GrenadeTimer", 1)
+		GRNF A 0 A_ReFire
+		Goto Throw
 	}
 }
 
