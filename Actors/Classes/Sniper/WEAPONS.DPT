@@ -1,6 +1,3 @@
-//WEAPONS.DPT
-//LUMP VERSION NUMBER 0.73
-
 Actor SniperRifle: Weapon
 {
 	Obituary "%o was sniped by %k's sniper rifle"
@@ -9,12 +6,10 @@ Actor SniperRifle: Weapon
 	Weapon.AmmoUse 1
 	Weapon.AmmoGive 10
 	Weapon.AmmoType "SniperAmmo"
+	+INVENTORY.UNDROPPABLE
 	+NOALERT
 	States
 	{
-	Spawn:
-		SNIP A -1
-		Loop
 	Ready:
 		SNIE JIHGFEDCBA 1
 		SNIE A 1 A_WeaponReady
@@ -57,9 +52,6 @@ Actor SniperRifleZoomed : Weapon
 	+DONTBOB
 	States
 	{
-	Spawn:
-		RIFL A -1
-		Loop
 	Ready:
 		RIFL A 0 Bright A_ZoomFactor(3.0)
 		RIFL A 1 Bright A_WeaponReady

@@ -1,11 +1,8 @@
-//CLASS.DPT
-//LUMP VERSION NUMBER 0.3
-
 Actor Spy : PlayerPawn
 {
 	Speed 1
 	Health 100
-	Player.maxhealth 100
+	Player.MaxHealth 100
 	Radius 16
 	Height 56
 	Mass 100

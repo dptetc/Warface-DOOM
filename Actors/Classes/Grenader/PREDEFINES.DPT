@@ -1,6 +1,3 @@
-//PREDEFINES.DPT
-//LUMP VERSION NUMBER 0.27
-
 ACTOR HandGrenadeAmmo : Ammo
 {
 	Inventory.Amount 1

@@ -1,5 +1,6 @@
 clearplayerclasses
 addplayerclass Assault
+addplayerclass CryoMan
 addplayerclass Demonologist
 addplayerclass Grenader
 addplayerclass Heavy

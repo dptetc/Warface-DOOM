@@ -4,7 +4,7 @@
 // Programming Language: DECORATE
 //------------------------------------
 /*
-All content fully free, but the distribution of all content is under DartPower's License Free Information v4.1
+All content fully free, but the distribution of all content is under DartPower's License Free Information v4.5
 			For advice about the license, please write to the author to http://vk.com/dartpower
 					We accept no liability for legal persons, we hate "Corporations".
 */
@@ -16,6 +16,11 @@ All content fully free, but the distribution of all content is under DartPower's
 #include "Actors/Classes/Assault/PREDEFINES.DPT"
 #include "Actors/Classes/Assault/CLASS.DPT"
 #include "Actors/Classes/Assault/WEAPONS.DPT"
+//------------------------------------
+//CryoMan
+#include "Actors/Classes/CryoMan/PREDEFINES.DPT"
+#include "Actors/Classes/CryoMan/CLASS.DPT"
+#include "Actors/Classes/CryoMan/WEAPONS.DPT"
 //------------------------------------
 //Demonologist
 #include "Actors/Classes/Demonologist/PREDEFINES.DPT"

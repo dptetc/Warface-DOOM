@@ -1,10 +1,14 @@
-//PREDEFINES.DPT
-//LUMP VERSION NUMBER 0.34
-
-ACTOR Plasma : Ammo
+ACTOR SuperShells : Ammo
 {
-	Inventory.Amount 1
-	Inventory.MaxAmount 250
-	Ammo.BackpackAmount 1
-	Ammo.BackpackMaxAmount 500
+	Inventory.Amount 50
+	Inventory.MaxAmount 50
+	Ammo.BackpackAmount 100
+	Ammo.BackpackMaxAmount 100
+	Inventory.Icon "SHELA0"
+	States
+	{
+	Spawn:
+		SHEL A -1
+		Stop
+	}
 }

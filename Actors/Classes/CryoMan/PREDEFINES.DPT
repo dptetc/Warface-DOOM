@@ -1,0 +1,7 @@
+ACTOR Plasma : Ammo
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 250
+	Ammo.BackpackAmount 1
+	Ammo.BackpackMaxAmount 500
+}

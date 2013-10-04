@@ -20,3 +20,8 @@ weapons/flash			dsunmkpo
 Weapon/SniperFire		DSSNIPER
 Weapon/SniperCharge		DSSNICHR
 weapons/COLTFIRE		COLTFIRE
+weapons/cryobowfire     DSBOWFIR
+weapons/cryobowshot     DSBOWSHT
+weapons/cryobowreload   DSBOWREL
+weapons/cryobowhit      DSBOWHIT
+weapons/cryobowflyby    DSBOWFLY

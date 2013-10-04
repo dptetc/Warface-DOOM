@@ -1,19 +1,19 @@
 ACTOR FullHealth : Inventory {}
 ACTOR Experience : Ammo { Inventory.MaxAmount 999 }
 
-Actor Chainsaw1 replaces Chainsaw {}
-Actor Pistol1 replaces Pistol {}
-Actor Shotgun1 replaces Shotgun {}
-Actor SuperShotgun1 replaces SuperShotgun {}
-Actor Chaingun1 replaces Chaingun {}
-Actor RocketLauncher1 replaces RocketLauncher {}
-Actor PlasmaRifle1 replaces PlasmaRifle {}
-Actor BFG90001 replaces BFG9000 {}
-Actor Shell1 replaces Shell {}
-Actor ShellBox1 replaces ShellBox {}
-Actor RocketAmmo1 replaces RocketAmmo {}
-Actor RocketBox1 replaces RocketBox {}
-Actor Cell1 replaces Cell {}
-Actor CellPack1 replaces CellPack {}
-ACTOR Clip1 replaces Clip {}
-ACTOR ClipBox replaces Clip {}
+Actor Chainsaw1 : Weapon replaces Chainsaw {}
+Actor Pistol1 : Weapon replaces Pistol {}
+Actor Shotgun1 : Weapon replaces Shotgun {}
+Actor SuperShotgun1 : Weapon replaces SuperShotgun {}
+Actor Chaingun1 : Weapon replaces Chaingun {}
+Actor RocketLauncher1 : Weapon replaces RocketLauncher {}
+Actor PlasmaRifle1 : Weapon replaces PlasmaRifle {}
+Actor BFG90001 : Weapon replaces BFG9000 {}
+Actor Shell1 : Ammo replaces Shell {}
+Actor ShellBox1 : Ammo replaces ShellBox {}
+Actor RocketAmmo1 : Ammo replaces RocketAmmo {}
+Actor RocketBox1 : Ammo replaces RocketBox {}
+Actor Cell1 : Ammo replaces Cell {}
+Actor CellPack1 : Ammo replaces Cell {}
+ACTOR Clip1 : Ammo replaces Clip {}
+ACTOR ClipBox : Ammo replaces Clip {}

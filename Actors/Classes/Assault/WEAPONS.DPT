@@ -1,111 +1,39 @@
-//WEAPONS.DPT
-//LUMP VERSION NUMBER 0.1
-
-Actor PlasmaPistol : Weapon
+ACTOR SSG : Weapon
 {
-	Inventory.PickupSound "misc/w_pkup"
-	Weapon.AmmoType "Plasma"
-	Weapon.AmmoGive 20
-	Weapon.Kickback 100
-	Weapon.AmmoUse 1
-	Decal RailGunScorch
-	Inventory.PickupMessage "Picked up a Plasma Pistol"
-	Obituary "%o killed by %k"
-	+WEAPON.NOAUTOFIRE
-	+WEAPON.NOAUTOAIM
+	Weapon.AmmoUse 2
+	Weapon.AmmoGive 8
+	Weapon.AmmoType "SuperShells"
+	Inventory.PickupMessage "$GOTSHOTGUN2"
+	Obituary "$OB_MPSSHOTGUN"
+	Tag "$TAG_SUPERSHOTGUN"
 	+INVENTORY.UNDROPPABLE
 	States
 	{
 	Ready:
-		PIS1 A 2 A_WeaponReady
+		DBSH A 1 A_WeaponReady
 		Loop
 	Deselect:
-		PIS1 A 0 A_Lower
-		PIS1 A 1 A_Lower
+		DBSH A 1 A_Lower
 		Loop
 	Select:
-		PIS1 A 0 A_Raise
-		PIS1 A 1 A_Raise
+		DBSH A 1 A_Raise
 		Loop
-	Spawn:
-		PIST A -1
-		Stop
 	Fire:
-		PIS1 B 2 BRIGHT
-		PIS1 C 2 BRIGHT A_FireCustomMissile("PlasmaBolt")
-		PIS1 A 0 A_Recoil (1)
-		PIS1 A 4
-		PIS1 A 12 A_Recoil (-1)
-		PIS1 A 0 A_Refire
+		DBSH A 3
+		DBSH B 0 A_FireBullets (11.2, 7.1, 20, 5, "BulletPuff")
+		DBSH B 0 A_PlaySound ("weapons/sshotf", CHAN_WEAPON)
+		DBSH B 6
+		DBSH CDE 5
+		DBSH FGH 5 A_CheckReload
+		DBSH I 5 A_OpenShotgun2
+		DBSH J 5
+		DBSH K 5 A_LoadShotgun2
+		DBSH L 3
+		DBSH M 3 A_CloseShotgun2
+		DBSH N 4 A_ReFire
 		Goto Ready
-	}
-}
-
-Actor PlasmaBolt : PlasmaBall
-{
-	States
-	{
 	Spawn:
-		PLSS AB 6 Bright A_SpawnItemEx("PlasmaShaddow")
-		Loop
-	}
-}
-
-Actor PlasmaShaddow : PlasmaBall
-{
-	RenderStyle Translucent
-	Alpha 0.35
-	Speed 24
-	States
-	{
-	Spawn:
-		PLSS AB 6 Bright A_FadeOut(0.1)
-		Stop
-	}
-}
-
-Actor PulseRifle : Weapon
-{
-	Weapon.AmmoType "Plasma"
-	Weapon.AmmoGive 50
-	Weapon.AmmoUse 0
-	+WEAPON.NOAUTOAIM
-	+INVENTORY.UNDROPPABLE
-	Decal "BulletChip"
-	States
-	{
-	Deselect:
-		TKGN A 0 SetPlayerProperty(0,0,2)
-		TKGN A 0 A_Lower
-		TKGN A 1 A_Lower
-		Loop
-	Select:
-		TKGN A 0 SetPlayerProperty(0,1,2)
-		TKGN A 0 A_Raise
-		TKGN U 1 A_Raise
-		Wait
-	Ready:
-		TKGN UVWXA 1
-	RealReady:
-		TKGN A 191 A_WeaponReady
-		TKGN A 3 A_WeaponReady
-		TKGN A 0 A_GiveInventory("Plasma",2)
-		Goto RealReady+1
-	Fire:
-		TKGN A 1 A_JumpIfInventory("Plasma",1,"NormalShot")
-	NoAmmo:
-		TKGN A 20
-		Goto Ready
-	NormalShot:
-		TKGN A 0 A_GunFlash
-		TKGN A 0 A_PlayWeaponSound("PlasmaShot")
-		TKGN A 0 A_TakeInventory("Plasma",1)
-		TKGN A 4 A_FireCustomMissile("PlasmaBolt",0,1,5)
-		TKGN A 0 A_TakeInventory("Plasma",1)
-		TKGN A 4 A_FireCustomMissile("PlasmaBolt",0,1,5)
-		Goto RealReady
-	Flash:
-		TKGN BC 4 bright
+		DBSH A -1
 		Stop
 	}
 }

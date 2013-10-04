@@ -1,6 +1,3 @@
-//WEAPONS.DPT
-//LUMP VERSION NUMBER 1.1 RC2
-
 Actor GrenadeTimer : Inventory { Inventory.MaxAmount 90 }
 
 ACTOR HandGrenade : Weapon
@@ -89,9 +86,6 @@ Actor GrenadeLauncher : Weapon
 	Obituary "%o caught %k's grenade."
 	States
 	{
-	Spawn:
-		GLAU A -1
-		Stop
 	Ready:
 		GRLG A 1 A_WeaponReady
 		Loop

@@ -1,6 +1,3 @@
-//PREDEFINES.DPT
-//LUMP VERSION NUMBER 0.34
-
 ACTOR Bullets : Ammo
 {
 	Inventory.Amount 1

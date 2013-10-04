@@ -1,6 +1,3 @@
-//WEAPONS.DPT
-//LUMP VERSION NUMBER 0.1
-
 ACTOR Minigun : Weapon 5014
 {
 	SpawnID 214
@@ -14,11 +11,9 @@ ACTOR Minigun : Weapon 5014
 	Inventory.PickupMessage "You got the minigun!"
 	Obituary "%o was drilled by %k's minigun."
 	AttackSound "weapons/minigun"
+	+INVENTORY.UNDROPPABLE
 	States
 	{
-	Spawn:
-		CHAN F -1
-		Loop
 	Ready:
 		D3CH A 1 A_WeaponReady
 		Loop
