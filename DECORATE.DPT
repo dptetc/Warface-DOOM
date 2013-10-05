@@ -17,6 +17,16 @@ All content fully free, but the distribution of all content is under DartPower's
 #include "Actors/Classes/Assault/CLASS.DPT"
 #include "Actors/Classes/Assault/WEAPONS.DPT"
 //------------------------------------
+//Berserker
+#include "Actors/Classes/Berserker/PREDEFINES.DPT"
+#include "Actors/Classes/Berserker/CLASS.DPT"
+#include "Actors/Classes/Berserker/WEAPONS.DPT"
+//------------------------------------
+//BrutalMan
+#include "Actors/Classes/BrutalMan/PREDEFINES.DPT"
+#include "Actors/Classes/BrutalMan/CLASS.DPT"
+#include "Actors/Classes/BrutalMan/WEAPONS.DPT"
+//------------------------------------
 //CryoMan
 #include "Actors/Classes/CryoMan/PREDEFINES.DPT"
 #include "Actors/Classes/CryoMan/CLASS.DPT"
@@ -27,20 +37,25 @@ All content fully free, but the distribution of all content is under DartPower's
 #include "Actors/Classes/Demonologist/CLASS.DPT"
 #include "Actors/Classes/Demonologist/WEAPONS.DPT"
 //------------------------------------
-//Grenader
-#include "Actors/Classes/Grenader/PREDEFINES.DPT"
-#include "Actors/Classes/Grenader/CLASS.DPT"
-#include "Actors/Classes/Grenader/WEAPONS.DPT"
-//------------------------------------
 //Heavy
 #include "Actors/Classes/Heavy/PREDEFINES.DPT"
 #include "Actors/Classes/Heavy/CLASS.DPT"
 #include "Actors/Classes/Heavy/WEAPONS.DPT"
 //------------------------------------
+//PyroMan
+#include "Actors/Classes/PyroMan/PREDEFINES.DPT"
+#include "Actors/Classes/PyroMan/CLASS.DPT"
+#include "Actors/Classes/PyroMan/WEAPONS.DPT"
+//------------------------------------
 //Sniper
 #include "Actors/Classes/Sniper/PREDEFINES.DPT"
 #include "Actors/Classes/Sniper/CLASS.DPT"
 #include "Actors/Classes/Sniper/WEAPONS.DPT"
+//------------------------------------
+//Specialist
+#include "Actors/Classes/Specialist/PREDEFINES.DPT"
+#include "Actors/Classes/Specialist/CLASS.DPT"
+#include "Actors/Classes/Specialist/WEAPONS.DPT"
 //------------------------------------
 //Spy
 #include "Actors/Classes/Spy/PREDEFINES.DPT"

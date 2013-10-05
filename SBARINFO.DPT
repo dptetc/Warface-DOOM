@@ -84,13 +84,6 @@ statusbar normal, fullscreenoffsets
 		DrawSwitchableImage weaponslot 5, "STGNUM5", "STYSNUM5", -92, -36;
 		DrawSwitchableImage weaponslot 6, "STGNUM6", "STYSNUM6", -85, -36;
 		DrawSwitchableImage weaponslot 7, "STGNUM7", "STYSNUM7", -78, -36;
-		
-		DrawSwitchableImage keyslot 2, "NOKEY", "BKEY", -60, -36;
-		DrawSwitchableImage keyslot 3, "NOKEY", "YKEY", -51, -36;
-		DrawSwitchableImage keyslot 1, "NOKEY", "RKEY", -42, -36;
-		DrawSwitchableImage keyslot 5, "NOSKULL", "BSKULL", -33, -37;
-		DrawSwitchableImage keyslot 6, "NOSKULL", "YSKULL", -25, -37;
-		DrawSwitchableImage keyslot 4, "NOSKULL", "RSKULL", -17, -37;
 	}
 	gamemode cooperative, deathmatch, teamgame
 	{

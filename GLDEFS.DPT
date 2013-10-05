@@ -1,37 +1,192 @@
 PointLight GRENADE
 {
-Color 1.0 0.5 0.0
-Size 22
+	Color 1.0 0.5 0.0
+	Size 22
 }
 
 FlickerLight GRENADE_X1
 {
-Color 1.0 0.5 0.0
-Size 22
-SecondarySize 72
-Chance 0.3
+	Color 1.0 0.5 0.0
+	Size 22
+	SecondarySize 72
+	Chance 0.3
 }
 
 FlickerLight GRENADE_X2
 {
-Color 0.3 0.0 0.0
-Size 28
-SecondarySize 88
-Chance 0.3
+	Color 0.3 0.0 0.0
+	Size 28
+	SecondarySize 88
+	Chance 0.3
 }
 
 FlickerLight GRENADE_X3
 {
-Color 0.2 0.0 0.0
-Size 32
-SecondarySize 104
-Chance 0.3
+	Color 0.2 0.0 0.0
+	Size 32
+	SecondarySize 104
+	Chance 0.3
 }
 
 Object STGrenade
 {
-Frame SGRN { Light GRENADE }
-Frame MISLB { Light GRENADE_X1 }
-Frame MISLC { Light GRENADE_X2 }
-Frame MISLD { Light GRENADE_X3 }
+	Frame SGRN { Light GRENADE }
+	Frame MISLB { Light GRENADE_X1 }
+	Frame MISLC { Light GRENADE_X2 }
+	Frame MISLD { Light GRENADE_X3 }
+}
+
+PointLight DGrenade1
+{
+	Color 0.4 0.4 0.0
+	Size 32
+}
+
+Object DGrenade
+{
+	Frame DGRE { Light DGrenade1 }
+	Frame MISLB { Light ROCKET_X1 }
+	Frame MISLC { Light ROCKET_X2 }
+	Frame MISLD { Light ROCKET_X3 }
+}
+
+FlickerLight2 FlameThrowerFire
+{
+	Offset 0 2 0
+	Color 0.15 0.04 0.0
+	Size 40
+	SecondarySize 60
+	Interval 2.0
+}
+
+Object FTFire
+{
+	Frame FRFX { Light FlameThrowerFire }
+}
+
+FlickerLight2 DropFlame
+{
+	Offset 0 0 0
+	Color 0.15 0.04 0.0
+	Size 20
+	SecondarySize 30
+	Interval 2.0
+}
+
+Object DropFire
+{
+	Frame FLME { Light DropFlame }
+}
+
+PointLight PyroLightA
+{
+	Color 1.0 0.5 0.0
+	Size 48
+}
+
+Object PyroProjA
+{
+	Frame PYFL { Light PyroLightA }
+}
+
+Object PyroProjB
+{
+	Frame PYFL { Light PyroLightA }
+}
+
+Pointlight PyroLight2A
+{
+	Color 0.6 0.4 0.0
+	Size 64
+}
+
+Pointlight PyroLight2B
+{
+	Color 0.8 0.6 0.0
+	Size 72
+}
+
+Pointlight PyroLight2C
+{
+	Color 1.0 0.8 0.4
+	Size 80
+}
+
+Pointlight PyroLight2D
+{
+	Color 0.8 0.7 0.0
+	Size 72
+}
+
+Pointlight PyroLight2E
+{
+	Color 0.6 0.4 0.0
+	Size 64
+}
+
+Pointlight PyroLight2F
+{
+	Color 0.4 0.2 0.0
+	Size 56
+}
+
+Pointlight PyroLight2G
+{
+	Color 0.4 0.0 0.0
+	Size 40
+}
+
+Object PyroProj2
+{
+	Frame PYBUA { Light PyroLight2A }
+	Frame PYBUB { Light PyroLight2A }
+	Frame PYBUC { Light PyroLight2A }
+	Frame PYBUD { Light PyroLight2B }
+	Frame PYBUE { Light PyroLight2C }
+	Frame PYBUF { Light PyroLight2D }
+}
+
+Object PyroSFX
+{
+	Frame PYBUG { Light PyroLight2E }
+	Frame PYBUH { Light PyroLight2F }
+	Frame PYBUI { Light PyroLight2G }
+}
+
+PointLight KDiZDGrenade1
+{
+	Color 0.6 0.6 0.0
+	Size 32
+}
+
+FlickerLight KDiZDGrenade2
+{
+	Color 1.0 0.7 0.0
+	Size 64
+	SecondarySize 72
+	Chance 0.3
+}
+
+FlickerLight KDiZDGrenade3
+{
+	Color 0.5 0.1 0.0
+	Size 80
+	SecondarySize 88
+	Chance 0.3
+}
+
+FlickerLight KDiZDGrenade4
+{
+	Color 0.3 0.0 0.0
+	Size 96
+	SecondarySize 104
+	Chance 0.3
+}
+
+Object KDiZDGrenade
+{
+	Frame GRND { Light KDiZDGrenade1 }
+	Frame MISLB { Light KDiZDGrenade2 }
+	Frame MISLC { Light KDiZDGrenade3 }
+	Frame MISLD { Light KDiZDGrenade4 }
 }

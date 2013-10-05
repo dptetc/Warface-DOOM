@@ -1,0 +1,56 @@
+Actor BrutalMan : PlayerPawn
+{
+	+NOSKIN
+	Speed 1
+	Health 100
+	Radius 16
+	Height 56
+	Mass 100
+	PainChance 255
+	Player.CrouchSprite "PDVC"
+	Player.DisplayName "Brutal Man"
+	Player.StartItem "DEVASTATOR"
+	Player.StartItem "DoubleDevastator"
+	Player.StartItem "Deviation"
+	Player.StartItem "RocketAmmo", 100
+	Player.StartItem "MiniRockets", 250
+	Player.WeaponSlot 1, DEVASTATOR
+	Player.WeaponSlot 2, DoubleDevastator
+	Player.WeaponSlot 3, Deviation
+	Player.ColorRange 112, 127
+	States
+	{
+	Spawn:
+		PDEV A -1
+		Loop
+	See:
+		PDEV ABCD 4 
+		Loop
+	Missile:
+		PDEV E 12 
+		Goto Spawn
+	Melee:
+		PDEV F 6 BRIGHT
+		Goto Missile
+	Pain:
+		PDEV G 4 
+		PDEV G 4 A_Pain
+		Goto Spawn
+	Death:
+		PDEV H 5
+		PDEV H 5 A_GiveToTarget("Experience",random(1,10))
+		PDEV I 10 A_PlayerScream
+		PDEV J 10 A_NoBlocking
+		PDEV KLM 10
+		PDEV N -1
+		Stop
+	XDeath:
+		PDEV O 2
+		PDEV O 3 A_GiveToTarget("Experience",random(1,10))
+		PDEV P 5 A_XScream
+		PDEV Q 5 A_NoBlocking
+		PDEV RSTUV 5
+		PDEV W -1
+		Stop
+	}
+}

@@ -1,8 +1,6 @@
 Actor SniperRifle: Weapon
 {
-	Obituary "%o was sniped by %k's sniper rifle"
-	Inventory.PickupMessage "You got The Sniper Rifle!"
-	Inventory.PickupSound "misc/pk_up"
+	Obituary "%k > Sniper Rifle > %o"
 	Weapon.AmmoUse 1
 	Weapon.AmmoGive 10
 	Weapon.AmmoType "SniperAmmo"
@@ -15,10 +13,12 @@ Actor SniperRifle: Weapon
 		SNIE A 1 A_WeaponReady
 		Goto Ready+10
 	Deselect:
+		SNIE B 0 A_Lower
 		SNIE B 1 A_Lower
 		Loop
 	Select:
 		SNIE A 0 A_Raise
+		SNIE A 1 A_Raise
 		Loop
 	Fire:
 		SNIF A 0 A_AlertMonsters
@@ -45,11 +45,13 @@ Actor SniperRifle: Weapon
 
 Actor SniperRifleZoomed : Weapon
 {
+	Obituary "%k > Sniper Rifle > %o"
 	Weapon.Ammouse 1
 	Weapon.AmmoType "SniperAmmo"
 	+CHEATNOTWEAPON
 	+NOALERT
 	+DONTBOB
+	+INVENTORY.UNDROPPABLE
 	States
 	{
 	Ready:
@@ -62,6 +64,7 @@ Actor SniperRifleZoomed : Weapon
 		Goto Deselect+1
 	Select:
 		RIFL A 0 Bright A_Raise
+		RIFL A 1 Bright A_Raise
 		Loop
 	Fire:
 		RIFL A 0 Bright A_AlertMonsters
@@ -127,4 +130,153 @@ Actor BulletCasing
 		BULL C -1
 		Loop
 	}
+}
+
+actor HuntingRifle : Weapon
+{
+	Obituary "%k > Hunting Rifle > %o"
+	radius 20
+	height 16
+	attacksound "HuntingRifle/Fire"
+	weapon.kickback 125
+	weapon.ammotype "Clip"
+	weapon.ammouse 1
+	weapon.ammogive 40
+	+NOALERT
+	+INVENTORY.UNDROPPABLE
+	states
+	{
+	Ready:
+		LDHR A 0 A_TakeInventory("HuntingRifleToken1",1)
+		LDHR A 2 A_WeaponReady
+		LDHR A 0 A_TakeInventory("HuntingRifleToken2",1)
+		loop
+	Deselect:
+		LDHR A 0 A_Lower
+		LDHR A 1 A_Lower
+		loop
+	Select:
+		LDHR A 0 A_JumpIfInventory("HuntingRifleToken1",1,"Ready")
+		LDHR A 0 A_Raise
+		LDHR A 1 A_Raise
+		loop
+	Fire:
+		LDHR A 0 A_AlertMonsters
+		LDHR A 0 A_FireBullets (0.5, 0.5, -1, 25, "NoHuntingRifleGibPuff")
+		LDHR A 0 A_PlayWeaponSound("HuntingRifle/Fire")
+		LDHR A 0 Radius_Quake (2, 2, 0, 1, 0)
+		LDHR A 0 A_SetPitch (pitch-0.5)
+		LDHR BC 1
+		LDHR D 2
+		LDHR E 4
+		LDHR FGH 2
+		LDHR A 1 A_ReFire 
+		goto Ready
+	AltFire:
+		LDHR A 0 A_JumpIfInventory("HuntingRifleToken2",1,"Ready")
+		LDHR A 0 A_GiveInventory("HuntingRifleToken2")
+		LDHR A 0
+		LDHR A 0 A_GiveInventory("HuntingRifleScope")
+		LDHR A 0 A_SelectWeapon("HuntingRifleScope")
+		LDHR A 0 A_Lower
+		LDHR A 0 A_Lower
+		LDHR A 0 A_Lower
+		LDHR A 0 A_Lower
+		LDHR A 0 A_Lower
+		goto AltFire+3
+	}
+}
+
+Actor HuntingRifleScope: Weapon
+{ 
+	Obituary "%k > Hunting Rifle > %o"
+	weapon.kickback 125
+	weapon.ammotype "Clip"
+	weapon.ammouse 1
+	weapon.ammogive 0
+	+DONTBOB
+	+NOALERT
+	+INVENTORY.UNDROPPABLE
+	States
+	{
+	Ready:
+		LDHR T 0
+		LDHR T 2 A_WeaponReady
+		LDHR T 0 A_TakeInventory("HuntingRifleToken2",1)
+		Loop
+	Deselect:
+		LDHR T 0
+		LDHR T 0 
+		Goto AltFire+2
+	Select:
+		LDHR T 0 A_PlayWeaponSound("HuntingRifle/Scope")
+		LDHR T 0 A_ZoomFactor(4.0)
+		LDHR T 0
+		LDHR T 0 A_Raise
+		Loop
+	Fire:
+		LDHR T 0 A_AlertMonsters
+		LDHR T 0
+		LDHR T 0 A_PlayWeaponSound("HuntingRifle/Fire")
+		LDHR T 0 A_FireBullets (0.1, 0.1, -1, 25, "NoHuntingRifleGibPuff")
+		LDHR T 0 Radius_Quake (2, 2, 0, 1, 0)
+		LDHR T 0 A_SetPitch (pitch-0.5)
+		LDHR T 15 
+		LDHR T 0 A_Refire
+		Goto Ready
+	AltFire:
+		LDHR T 0 A_JumpIfInventory("HuntingRifleToken2",1,"Ready")
+		LDHR T 0 A_PlayWeaponSound("HuntingRifle/Scope")
+		LDHR T 0 A_JumpIfInventory("HuntingRifleToken3",2,"AltFireDeselect")
+		LDHR T 0 A_ZoomFactor(12.0)
+		LDHR T 0 A_GiveInventory("HuntingRifleToken2")
+		LDHR T 0 A_JumpIfInventory("HuntingRifleToken3",1,"AltFire2")
+		LDHR T 0 A_GiveInventory("HuntingRifleToken3")
+		Goto Ready
+	AltFire2:
+		LDHR T 0 A_ZoomFactor(24.0)
+		LDHR T 0 A_GiveInventory("HuntingRifleToken3")
+		Goto Ready
+	AltFireDeselect: 
+		LDHR T 0 A_TakeInventory("HuntingRifleToken3")
+		LDHR T 0 A_TakeInventory("HuntingRifleToken3")
+		LDHR T 0 A_GiveInventory("HuntingRifleToken1")
+		LDHR T 0 A_GiveInventory("HuntingRifleToken2")
+		LDHR T 0 A_PlayWeaponSound("HuntingRifle/Scope")
+		LDHR T 0 A_ZoomFactor(1.0)
+		LDHR T 0 A_SelectWeapon("HuntingRifle")
+		LDHR T 0 A_Lower
+		LDHR T 0 A_Lower
+		LDHR T 0 A_Lower
+		LDHR T 0 A_Lower
+		LDHR T 0 A_Lower
+		LDHR T 0
+		goto AltfireDeselect+7
+	}
+}
+
+ACTOR HuntingRifleToken1 : Ammo
+{
+	Inventory.MaxAmount 1
+	Ammo.BackpackAmount 0
+	Ammo.BackpackMaxAmount 1
+}
+
+ACTOR HuntingRifleToken2 : Ammo
+{
+	Inventory.MaxAmount 1
+	Ammo.BackpackAmount 0
+	Ammo.BackpackMaxAmount 1
+}
+
+ACTOR HuntingRifleToken3 : Ammo
+{
+	Inventory.MaxAmount 2
+	Ammo.BackpackAmount 0
+	Ammo.BackpackMaxAmount 2
+}
+
+ACTOR NoHuntingRifleGibPuff : BulletPuff
+{
+	+NOEXTREMEDEATH
 }

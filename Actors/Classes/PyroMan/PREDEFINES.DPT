@@ -1,0 +1,85 @@
+
+Actor Gas : Ammo
+{
+	Inventory.PickupSound "misc/pickup"
+	Inventory.Amount 24
+	Inventory.MaxAmount 240
+	Ammo.BackpackAmount 24
+	Ammo.BackpackMaxAmount 480
+	Inventory.PickupMessage "You picked up a gasoline cannister"
+	Inventory.Icon AGASA0
+	States
+	{
+	Spawn:
+		AGAS A -1
+		Loop
+	}
+}
+
+Actor BigGas : Gas
+{
+	Inventory.Amount 120
+	Inventory.PickupMessage "You picked up a gasoline pack"
+	Inventory.Icon AGASB0
+	States
+	{
+	Spawn:
+		AGAS B -1
+		Loop
+	}
+}
+
+Actor PyroTank : Ammo
+{
+	Inventory.Amount 40
+	Inventory.MaxAmount 400
+	Ammo.BackpackAmount 80
+	Ammo.BackpackMaxAmount 800
+	Inventory.PickupMessage "Pyro Tank"
+	Inventory.Icon PYTNA0
+	States
+	{
+	Spawn:
+		PYTN A -1
+		Loop
+	}
+}
+
+Actor PyroTankHefty : PyroTank
+{
+	Inventory.Amount 200
+	Inventory.PickupMessage "Pyro Tank Hefty"
+	States
+	{
+	Spawn:
+		PYTN B -1
+		Stop
+	}
+}
+
+ACTOR M79Ammo : Ammo
+{
+	Inventory.PickupMessage "Picked up a M79 Round."
+	Inventory.Amount 1
+	Inventory.MaxAmount 25
+	Ammo.BackpackAmount 5
+	Ammo.BackpackMaxAmount 50
+	States
+	{
+	Spawn:
+		M79A A -1
+		stop
+	}
+}
+
+ACTOR M79AmmoBox : M79Ammo
+{
+	Inventory.PickupMessage "Picked up a box of M79 Rounds."
+	Inventory.Amount 5
+	States
+	{
+	Spawn:
+		M79A B -1
+		Stop
+	}
+}

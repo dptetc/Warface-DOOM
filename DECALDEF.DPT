@@ -1,0 +1,148 @@
+
+Fader PyroFader
+{
+	DecayStart 1
+	DecayTime 1
+}
+
+Decal PyroDecalA
+{
+	Pic PYFLA0
+	Solid
+	X-Scale .5
+	Y-Scale .5
+	Shade "00 00 00"
+	Animator PyroFader
+}
+
+Decal PyroDecalB
+{
+	Pic PYFLB0
+	Solid
+	X-Scale .5
+	Y-Scale .5
+	Shade "00 00 00"
+	Animator PyroFader
+}
+
+Decal PyroDecalC
+{
+	Pic PYFLC0
+	Solid
+	X-Scale .5
+	Y-Scale .5
+	Shade "00 00 00"
+	Animator PyroFader
+}
+
+Decal PyroDecalD
+{
+	Pic PYFLD0
+	Solid
+	X-Scale .5
+	Y-Scale .5
+	Shade "00 00 00"
+	Animator PyroFader
+}
+
+Decal PyroDecalE
+{
+	Pic PYFLE0
+	Solid
+	X-Scale .5
+	Y-Scale .5
+	Shade "00 00 00"
+	Animator PyroFader
+}
+
+Decal PyroDecalF
+{
+	Pic PYFLF0
+	Solid
+	X-Scale .5
+	Y-Scale .5
+	Shade "00 00 00"
+	Animator PyroFader
+}
+
+Decal PyroDecalG
+{
+	Pic PYFLG0
+	Solid
+	X-Scale .5
+	Y-Scale .5
+	Shade "00 00 00"
+	Animator PyroFader
+}
+
+Decal PyroDecalH
+{
+	Pic PYFLH0
+	Solid
+	X-Scale .5
+	Y-Scale .5
+	Shade "00 00 00"
+	Animator PyroFader
+}
+
+DecalGroup PyroDecal
+{
+	PyroDecalA	1
+	PyroDecalB	1
+	PyroDecalC	1
+	PyroDecalD	1
+	PyroDecalE	1
+	PyroDecalF	1
+	PyroDecalG	1
+	PyroDecalH	1
+}
+
+Fader PyroFader2
+{
+	DecayStart 5
+	DecayTime 5
+}
+
+Decal PyroDecal2A
+{
+	Pic PYBUF0
+	X-Scale .5
+	Y-Scale .5
+	Add .5
+	Animator PyroFader2
+}
+
+Decal PyroDecal2B
+{
+	Pic PYBUG0
+	X-Scale .5
+	Y-Scale .5
+	Add .5
+	Animator PyroFader2
+}
+
+Decal PyroDecal2C
+{
+	Pic PYBUH0
+	X-Scale .5
+	Y-Scale .5
+	Add .5
+	Animator PyroFader2
+}
+
+Decal PyroDecal2D
+{
+	Pic PYBUI0
+	X-Scale .5
+	Y-Scale .5
+	Add .5
+	Animator PyroFader2
+}
+
+DecalGroup PyroDecal2
+{
+	PyroDecal2A	1
+	PyroDecal2B	1
+	PyroDecal2C	1
+	PyroDecal2D	1
+}

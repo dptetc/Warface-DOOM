@@ -23,10 +23,10 @@ Actor Spy : PlayerPawn
 		PLA2 A -1
 		Loop
 	See:
-		PLA2 A 8
-		PLA2 B 8
-		PLA2 C 8
-		PLA2 D 8
+		PLA2 A 2 A_CustomMissile("SpyShadow1",0,0,180)
+		PLA2 B 2 A_CustomMissile("SpyShadow2",0,0,180)
+		PLA2 C 2 A_CustomMissile("SpyShadow3",0,0,180)
+		PLA2 D 2 A_CustomMissile("SpyShadow4",0,0,180)
 		Loop
 	Missile:
 		PLA2 E 12 
@@ -46,5 +46,53 @@ Actor Spy : PlayerPawn
 		TFOG DEFGHIJ 2
 		NULL A -1
 		Stop
+	}
+}
+
+ACTOR SpyShadow1
+{
+	RenderStyle Add
+	alpha 0.25
+	States
+	{
+	Spawn:
+		PLA2 A 2 A_FadeOut(0.1)
+		Loop
+	}
+}
+
+ACTOR SpyShadow2
+{
+	RenderStyle Add
+	alpha 0.25
+	States
+	{
+	Spawn:
+		PLA2 B 2 A_FadeOut(0.1)
+		Loop
+	}
+}
+
+ACTOR SpyShadow3
+{
+	RenderStyle Add
+	alpha 0.25
+	States
+	{
+	Spawn:
+		PLA2 C 2 A_FadeOut(0.1)
+		Loop
+	}
+}
+
+ACTOR SpyShadow4
+{
+	RenderStyle Add
+	alpha 0.25
+	States
+	{
+	Spawn:
+		PLA2 D 2 A_FadeOut(0.1)
+		Loop
 	}
 }

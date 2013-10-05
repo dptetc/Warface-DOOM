@@ -1,0 +1,15 @@
+
+actor Stamina : Ammo
+{
+	Inventory.MaxAmount 100
+}
+
+actor StamGen: Ammo 
+{
+	Inventory.MaxAmount 5
+}
+
+actor FistToken: Ammo 
+{
+	Inventory.MaxAmount 1
+}

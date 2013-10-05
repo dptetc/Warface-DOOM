@@ -2,17 +2,13 @@ ACTOR Unmaker : Weapon
 {
 	AttackSound "weapons/unmaker"
 	Decal "BloodSplat"
-	Inventory.PickupMessage "You got the Unmaker!"
-	Inventory.PickupSound "misc/w_pkup"
-	Obituary "%o felt the dark forces behind %k's Unmaker"
-	Tag "Unmaker"
+	Obituary "%k > Telefrag > %o"
 	Weapon.AmmoGive 90
 	Weapon.AmmoType1 "Magic"
 	Weapon.AmmoType2 "Magic"
 	Weapon.AmmoUse1 1
 	Weapon.AmmoUse2 4
 	Weapon.Kickback 1
-	Weapon.SelectionOrder 650
 	+EXTREMEDEATH
 	+WEAPON.ALT_AMMO_OPTIONAL
 	+WEAPON.AMMO_OPTIONAL
@@ -29,9 +25,11 @@ ACTOR Unmaker : Weapon
 		UNMK AAAAA 1 A_WeaponReady(WRF_NOSECONDARY)
 		Loop
 	Deselect:
+		UNMK A 0 A_Lower
 		UNMK A 1 A_Lower
 		Loop
 	Select:
+		UNMK A 0 A_Raise
 		UNMK A 1 A_Raise
 		Loop
 	Fire:
@@ -103,12 +101,12 @@ Actor FriendDoomImp
 	-SOLID
 	+FLOORCLIP
 	+FRIENDLY
+	+NEVERRESPAWN
 	SeeSound "imp/sight"
 	PainSound "imp/pain"
 	DeathSound "imp/death"
 	ActiveSound "imp/active"
-	HitObituary "$OB_IMPHIT"
-	Obituary "$OB_IMP"
+	HitObituary "Imp > Claws > %o"
 	States
 	{
 	Spawn:
@@ -131,7 +129,8 @@ Actor FriendDoomImp
 		TROO J 8 A_Scream
 		TROO K 6
 		TROO L 6 A_NoBlocking
-		TROO M -1
+		TROO M 4 A_FadeOut(0.1)
+		TNT1 A -1
 		Stop
 	XDeath:
 		TROO N 5
@@ -139,7 +138,8 @@ Actor FriendDoomImp
 		TROO P 5
 		TROO Q 5 A_NoBlocking
 		TROO RST 5
-		TROO U -1
+		TROO U 4 A_FadeOut(0.1)
+		TNT1 A -1
 		Stop
 	Raise:
 		TROO MLKJI 8

@@ -10,8 +10,11 @@ Actor Assault : PlayerPawn
 	Player.CrouchSprite "PL9C"
 	Player.DisplayName "Assault"
 	Player.StartItem "SSG"
+	Player.StartItem "G3"
 	Player.StartItem "SuperShells", 250
+	Player.StartItem "Clip", 400
 	Player.WeaponSlot 1, SSG
+	Player.WeaponSlot 2, G3
 	Player.ColorRange 112, 127
 	States
 	{

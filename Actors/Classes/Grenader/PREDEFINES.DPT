@@ -1,9 +1,0 @@
-ACTOR HandGrenadeAmmo : Ammo
-{
-	Inventory.Amount 1
-	Inventory.MaxAmount 25
-	Ammo.BackpackAmount 1
-	Ammo.BackpackMaxAmount 50
-}
-
-Actor GrenadeTimer : Inventory { Inventory.MaxAmount 90 }

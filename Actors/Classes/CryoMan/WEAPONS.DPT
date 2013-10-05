@@ -7,7 +7,7 @@ Actor PlasmaPistol : Weapon
 	Weapon.AmmoUse 1
 	Decal RailGunScorch
 	Inventory.PickupMessage "Picked up a Plasma Pistol"
-	Obituary "%o killed by %k"
+	Obituary "%k > Plasma Pistol > %o"
 	+WEAPON.NOAUTOFIRE
 	+WEAPON.NOAUTOAIM
 	+INVENTORY.UNDROPPABLE
@@ -24,9 +24,6 @@ Actor PlasmaPistol : Weapon
 		PIS1 A 0 A_Raise
 		PIS1 A 1 A_Raise
 		Loop
-	Spawn:
-		PIST A -1
-		Stop
 	Fire:
 		PIS1 B 2 BRIGHT
 		PIS1 C 2 BRIGHT A_FireCustomMissile("PlasmaBolt")
@@ -69,6 +66,7 @@ Actor PulseRifle : Weapon
 	+WEAPON.NOAUTOAIM
 	+INVENTORY.UNDROPPABLE
 	Decal "BulletChip"
+	Obituary "%k > Pulse Rifle > %o"
 	States
 	{
 	Deselect:
@@ -112,16 +110,16 @@ ACTOR CryoBow : Weapon
 	Weapon.AmmoType "Plasma"
 	Weapon.AmmoUse 1
 	Weapon.AmmoGive 5
-	Weapon.SlotNumber 5
-	Inventory.PickupMessage "$GOTCRYOBOW"
-	Obituary "$OB_MPCRYOBOW"
+	Obituary "%k > CryoBow > %o"
 	+INVENTORY.UNDROPPABLE
 	States
 	{
 	Deselect:
+		BOWG A 0 A_Lower
 		BOWG A 1 Bright A_Lower
 		Loop
 	Select:
+		BOWG A 0 A_Raise
 		BOWG A 1 Bright A_Raise
 		Loop
 	Ready:
@@ -161,7 +159,6 @@ ACTOR CryoShot : FastProjectile
 	Projectile
 	RenderStyle Add
 	Alpha 0.9
-	+FORCERADIUSDMG
 	+NODAMAGETHRUST
 	DeathSound "weapons/cryobowhit"
 	MissileType "CryoTrail"

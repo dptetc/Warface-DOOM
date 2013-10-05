@@ -1,8 +1,11 @@
 clearplayerclasses
 addplayerclass Assault
+addplayerclass Berserker
+addplayerclass BrutalMan
 addplayerclass CryoMan
 addplayerclass Demonologist
-addplayerclass Grenader
 addplayerclass Heavy
+addplayerclass PyroMan
 addplayerclass Sniper
+addplayerclass Specialist
 addplayerclass Spy

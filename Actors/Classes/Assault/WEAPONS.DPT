@@ -3,9 +3,8 @@ ACTOR SSG : Weapon
 	Weapon.AmmoUse 2
 	Weapon.AmmoGive 8
 	Weapon.AmmoType "SuperShells"
-	Inventory.PickupMessage "$GOTSHOTGUN2"
-	Obituary "$OB_MPSSHOTGUN"
-	Tag "$TAG_SUPERSHOTGUN"
+	Obituary "%k > SSG > %o"
+	+WEAPON.NOAUTOFIRE
 	+INVENTORY.UNDROPPABLE
 	States
 	{
@@ -13,9 +12,11 @@ ACTOR SSG : Weapon
 		DBSH A 1 A_WeaponReady
 		Loop
 	Deselect:
+		DBSH A 0 A_Lower
 		DBSH A 1 A_Lower
 		Loop
 	Select:
+		DBSH A 0 A_Raise
 		DBSH A 1 A_Raise
 		Loop
 	Fire:
@@ -32,8 +33,41 @@ ACTOR SSG : Weapon
 		DBSH M 3 A_CloseShotgun2
 		DBSH N 4 A_ReFire
 		Goto Ready
-	Spawn:
-		DBSH A -1
-		Stop
+	}
+}
+
+actor G3 : Weapon
+{
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 20
+	Weapon.AmmoType "Clip"
+	Obituary "%k > G3 > %o"
+	attacksound "G3/Fire"
+	+WEAPON.NOAUTOFIRE
+	States
+	{
+	Ready:
+		G3AR A 1 A_WeaponReady
+		Loop
+	Deselect:
+		G3AR A 0 A_Lower
+		G3AR A 1 A_Lower
+		Loop
+	Select:
+		G3AR A 0 A_Raise
+		G3AR A 1 A_Raise
+		Loop
+	Fire:
+		G3AR B 3 Bright A_FireBullets (4, 3, 1, 6, "BulletPuff")
+		G3AR C 1 A_SetPitch (pitch-0.8)
+		G3AR DA 1 A_SetPitch (pitch+0.2)
+		G3AR B 2 Bright A_FireBullets (4, 3, 1, 6, "BulletPuff")
+		G3AR C 1 A_SetPitch (pitch-0.8)
+		G3AR DA 1 A_SetPitch (pitch+0.2)
+		G3AR B 1 Bright A_FireBullets (4, 3, 1, 6, "BulletPuff")
+		G3AR C 1 A_SetPitch (pitch-0.8)
+		G3AR DA 1 A_SetPitch (pitch+0.2)
+		G3AR A 15 A_ReFire
+		Goto Ready
 	}
 }

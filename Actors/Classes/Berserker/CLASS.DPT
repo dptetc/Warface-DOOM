@@ -1,0 +1,51 @@
+Actor Berserker : PlayerPawn
+{
+	+NOSKIN
+	Speed 1
+	Health 100
+	Radius 16
+	Height 56
+	Mass 100
+	PainChance 255
+	Player.CrouchSprite "PL1C"
+	Player.DisplayName "Berserker"
+	Player.StartItem "FistRedux"
+	Player.StartItem "Stamina", 100
+	Player.WeaponSlot 1, FistRedux
+	Player.ColorRange 112, 127
+	States
+	{
+	Spawn:
+		PLA1 A -1
+		Loop
+	See:
+		PLA1 ABCD 4 
+		Loop
+	Missile:
+		PLA1 E 12 
+		Goto Spawn
+	Melee:
+		PLA1 F 6 BRIGHT
+		Goto Missile
+	Pain:
+		PLA1 G 4 
+		PLA1 G 4 A_Pain
+		Goto Spawn
+	Death:
+		PLA1 H 5
+		PLA1 H 5 A_GiveToTarget("Experience",random(1,10))
+		PLA1 I 10 A_PlayerScream
+		PLA1 J 10 A_NoBlocking
+		PLA1 KLM 10
+		PLA1 N -1
+		Stop
+	XDeath:
+		PLA1 O 2
+		PLA1 O 3 A_GiveToTarget("Experience",random(1,10))
+		PLA1 P 5 A_XScream
+		PLA1 Q 5 A_NoBlocking
+		PLA1 RSTUV 5
+		PLA1 W -1
+		Stop
+	}
+}

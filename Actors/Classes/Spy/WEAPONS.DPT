@@ -6,8 +6,7 @@ actor SilencerPistol : Weapon
 	Weapon.AmmoUse 1
 	Weapon.AmmoGive 10
 	Weapon.AmmoType "SilencerPistolAmmo"
-	Inventory.Pickupmessage "You got the pistol!"
-	Obituary "%o was capped by %k's pistol."
+	Obituary "%k > Silencer Pistol > %o"
 	+INVENTORY.UNDROPPABLE
 	States
 	{

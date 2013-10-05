@@ -1,0 +1,38 @@
+ACTOR HandGrenadeAmmo : Ammo
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 25
+	Ammo.BackpackAmount 1
+	Ammo.BackpackMaxAmount 50
+}
+
+Actor GrenadeTimer : Inventory { Inventory.MaxAmount 90 }
+
+actor 40mmGrenades : Ammo 5567
+{
+	Inventory.Amount 5
+	Inventory.MaxAmount 50
+	ammo.backpackamount 20
+	ammo.backpackmaxamount 100
+	Inventory.PickupSound "misc/i_pkup"
+	Inventory.PickupMessage "Picked up some 40mm grenades."
+	Inventory.Icon "40MMA0"
+	states
+	{
+	Spawn:
+		40MM A -1
+		stop
+	}
+}
+
+actor 40mmGrenadeBox : 40mmGrenades 5568
+{
+	Inventory.Amount 20
+	Inventory.PickupMessage "Picked up a box of 40mm grenades."
+	states
+	{
+	Spawn:
+		40BX A -1
+		stop
+	}
+}

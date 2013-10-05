@@ -10,9 +10,11 @@ Actor Sniper : PlayerPawn
 	Player.CrouchSprite "PSPC"
 	Player.DisplayName "Sniper"
 	Player.StartItem "SniperRifle"
+	Player.StartItem "HuntingRifle"
 	Player.StartItem "SniperAmmo", 250
-	Player.WeaponSlot 1, Glock
-	Player.WeaponSlot 2, SniperRifle
+	Player.StartItem "Clip", 400
+	Player.WeaponSlot 1, SniperRifle
+	Player.WeaponSlot 2, HuntingRifle
 	Player.ColorRange 112, 127
 	States
 	{

@@ -1,5 +1,0 @@
-[enu default]
-
-GOTCRYOBOW = "You got the Cryobow!";
-GOTCRYOBOLTS = "Picked up some cryo bolts.";
-OB_MPCRYOBOW = "%o was shattered by %k's cryobow.";
