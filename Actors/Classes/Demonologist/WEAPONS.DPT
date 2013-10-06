@@ -138,7 +138,7 @@ Actor FriendDoomImp
 		TROO P 5
 		TROO Q 5 A_NoBlocking
 		TROO RST 5
-		TROO U 4 A_FadeOut(0.1)
+		TROO U 4 A_FadeOut(0.01)
 		TNT1 A -1
 		Stop
 	Raise:

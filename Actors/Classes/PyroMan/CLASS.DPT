@@ -10,13 +10,13 @@ Actor PyroMan : PlayerPawn
 	PainChance 255
 	Player.CrouchSprite "PPYC"
 	Player.DisplayName "PyroMan"
-	Player.StartItem "UTNTFlamethrower"
+	Player.StartItem "FlameThrower"
 	Player.StartItem "PyroCannon"
 	Player.StartItem "M79"
 	Player.StartItem "Gas", 240
 	Player.StartItem "PyroTank", 400
 	Player.StartItem "M79Ammo", 50
-	Player.WeaponSlot 1, UTNTFlamethrower
+	Player.WeaponSlot 1, FlameThrower
 	Player.WeaponSlot 2, PyroCannon
 	Player.WeaponSlot 3, M79
 	Player.ColorRange 112, 127
